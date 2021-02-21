@@ -10,7 +10,7 @@ const Contact = ({ data }) => {
     <Layout>
       <SEO title="Contact" description="Contact description goes here" />
       <Container>
-        <PageTitle>Contact</PageTitle>
+        <PageTitle>Ota Yhteyttä</PageTitle>
         <ContactForm />
       </Container>
     </Layout>
