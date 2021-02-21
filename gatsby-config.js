@@ -19,29 +19,30 @@ module.exports = {
   siteMetadata: {
     title: 'Merja Oksman',
     description:
-      '',
-    siteUrl: 'https://gcn.netlify.com',
+      'Merja Oksman, kaikessa mukana',
+    siteUrl: 'https://merjaoksman.fi',
     image: '/images/share.jpg',
     menuLinks: [
       {
-        name: 'Home',
+        name: 'Kuntavaalit 2021',
         slug: '/',
       },
       {
-        name: 'Vaalit 2021',
-        slug: '/vaalit-2021/',
+        name: 'Mietteitä',
+        slug: '/mietteita/',
       },
       {
-        name: 'About',
+        name: 'Tietoa minusta',
         slug: '/about/',
       },
       {
-        name: 'Contact',
+        name: 'Ota yhteyttä',
         slug: '/contact/',
       },
     ],
     postsPerFirstPage: 7,
-    postsPerPage: 6,
+    postsPerTagPage: 6,
+    postsPerPage: 3,
     basePath: '/',
   },
   plugins: [
@@ -86,9 +87,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'GCN',
-        short_name: 'GCN',
-        start_url: '/',
+        name: 'Merja Oksman Kuntavaalit 2021',
+        short_name: 'Merja Oksman',
+        start_url: '/vaalit-2021/',
         background_color: '#ffffff',
         theme_color: '#ffffff',
         display: 'minimal-ui',

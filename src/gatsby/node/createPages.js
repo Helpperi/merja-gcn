@@ -33,8 +33,8 @@ module.exports = async ({ graphql, actions }) => {
     component: path.resolve(`./src/templates/posts.js`),
     items: posts,
     itemsPerFirstPage: config.siteMetadata.postsPerFirstPage || 7,
-    itemsPerPage: config.siteMetadata.postsPerPage || 6,
-    pathPrefix: basePath,
+    itemsPerPage: config.siteMetadata.postsPerTagPage || 6,
+    pathPrefix: basePath + 'mietteita',
     context: {
       basePath: basePath === '/' ? '' : basePath,
       paginationPath: basePath === '/' ? '' : `/${basePath}`,
@@ -55,7 +55,7 @@ module.exports = async ({ graphql, actions }) => {
       createPage,
       component: path.resolve(`./src/templates/tag.js`),
       items: tag.node.post || [],
-      itemsPerPage: config.siteMetadata.postsPerPage || 6,
+      itemsPerPage: config.siteMetadata.postsPerTagPage || 6,
       pathPrefix: tagPagination,
       context: {
         slug: tag.node.slug,
@@ -70,16 +70,19 @@ module.exports = async ({ graphql, actions }) => {
   const pages = pagesQuery.data.allContentfulPage.edges
   
   pages.forEach((page, i) => {
-    const pagePagination =
+    var pagePagination =
       basePath === '/'
         ? `/${page.node.slug}`
         : `/${basePath}/${page.node.slug}`
+        
+    // Workaround to allow one page to have slug value '/'
+    pagePagination = pagePagination.replace('//','/')
 
     paginate({
       createPage,
       component: path.resolve(`./src/templates/page.js`),
       items: page.node.post || [],
-      itemsPerPage: config.siteMetadata.postsPerPage || 6,
+      itemsPerPage: config.siteMetadata.postsPerPage || 3,
       pathPrefix: pagePagination,
       context: {
         slug: page.node.slug,

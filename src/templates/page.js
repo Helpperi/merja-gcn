@@ -46,9 +46,7 @@ const PageTemplate = ({ data, pageContext }) => {
         <PageTitle>{title}</PageTitle>
         <PageBody body={body} />
         <PageTitle small>
-            {numberOfPosts} Posts Tagged: &ldquo;
-            {title}
-            &rdquo;
+            Aiheeseen liittyvää:
           </PageTitle>
         <CardList>
             {posts.slice(skip, limit * humanPageNumber).map(post => (
