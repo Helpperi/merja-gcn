@@ -1,0 +1,314 @@
+### Type definitions saved at 2021-02-21T17:50:21.427Z ###
+
+type File implements Node @dontInfer {
+  sourceInstanceName: String!
+  absolutePath: String!
+  relativePath: String!
+  extension: String!
+  size: Int!
+  prettySize: String!
+  modifiedTime: Date! @dateformat
+  accessTime: Date! @dateformat
+  changeTime: Date! @dateformat
+  birthTime: Date! @dateformat
+  root: String!
+  dir: String!
+  base: String!
+  ext: String!
+  name: String!
+  relativeDirectory: String!
+  dev: Int!
+  mode: Int!
+  nlink: Int!
+  uid: Int!
+  gid: Int!
+  rdev: Int!
+  ino: Float!
+  atimeMs: Float!
+  mtimeMs: Float!
+  ctimeMs: Float!
+  atime: Date! @dateformat
+  mtime: Date! @dateformat
+  ctime: Date! @dateformat
+  birthtime: Date @deprecated(reason: "Use `birthTime` instead")
+  birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
+}
+
+type Directory implements Node @dontInfer {
+  sourceInstanceName: String!
+  absolutePath: String!
+  relativePath: String!
+  extension: String!
+  size: Int!
+  prettySize: String!
+  modifiedTime: Date! @dateformat
+  accessTime: Date! @dateformat
+  changeTime: Date! @dateformat
+  birthTime: Date! @dateformat
+  root: String!
+  dir: String!
+  base: String!
+  ext: String!
+  name: String!
+  relativeDirectory: String!
+  dev: Int!
+  mode: Int!
+  nlink: Int!
+  uid: Int!
+  gid: Int!
+  rdev: Int!
+  ino: Float!
+  atimeMs: Float!
+  mtimeMs: Float!
+  ctimeMs: Float!
+  atime: Date! @dateformat
+  mtime: Date! @dateformat
+  ctime: Date! @dateformat
+  birthtime: Date @deprecated(reason: "Use `birthTime` instead")
+  birthtimeMs: Float @deprecated(reason: "Use `birthTime` instead")
+}
+
+type Site implements Node @dontInfer {
+  buildTime: Date @dateformat
+  siteMetadata: SiteSiteMetadata
+  port: Int
+  host: String
+  polyfill: Boolean
+  pathPrefix: String
+}
+
+type SiteSiteMetadata @derivedTypes {
+  title: String
+  description: String
+  siteUrl: String
+  image: String
+  menuLinks: [SiteSiteMetadataMenuLinks]
+  postsPerFirstPage: Int
+  postsPerPage: Int
+  basePath: String
+}
+
+type SiteSiteMetadataMenuLinks {
+  name: String
+  slug: String
+}
+
+type SitePage implements Node @dontInfer {
+  path: String!
+  component: String!
+  internalComponentName: String!
+  componentChunkName: String!
+  matchPath: String
+}
+
+type MarkdownHeading {
+  id: String
+  value: String
+  depth: Int
+}
+
+enum MarkdownHeadingLevels {
+  h1
+  h2
+  h3
+  h4
+  h5
+  h6
+}
+
+enum MarkdownExcerptFormats {
+  PLAIN
+  HTML
+  MARKDOWN
+}
+
+type MarkdownWordCount {
+  paragraphs: Int
+  sentences: Int
+  words: Int
+}
+
+type MarkdownRemark implements Node @childOf(mimeTypes: ["text/markdown", "text/x-markdown"], types: ["contentfulPostMetaDescriptionTextNode", "contentfulPostBodyTextNode", "contentfulPageMetaDescriptionTextNode", "contentfulPageBodyTextNode"], many: false) @derivedTypes @dontInfer {
+  frontmatter: MarkdownRemarkFrontmatter
+  excerpt: String
+  rawMarkdownBody: String
+}
+
+type MarkdownRemarkFrontmatter {
+  title: String
+}
+
+type ContentfulAsset implements Node @derivedTypes @dontInfer {
+  contentful_id: String
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  file: ContentfulAssetFile
+  title: String
+  description: String
+  node_locale: String
+  sys: ContentfulAssetSys
+}
+
+type ContentfulAssetFile @derivedTypes {
+  url: String
+  details: ContentfulAssetFileDetails
+  fileName: String
+  contentType: String
+}
+
+type ContentfulAssetFileDetails @derivedTypes {
+  size: Int
+  image: ContentfulAssetFileDetailsImage
+}
+
+type ContentfulAssetFileDetailsImage {
+  width: Int
+  height: Int
+}
+
+type ContentfulAssetSys {
+  type: String
+  revision: Int
+}
+
+type contentfulPostMetaDescriptionTextNode implements Node @derivedTypes @childOf(types: ["ContentfulPost"]) @dontInfer {
+  metaDescription: String
+  sys: contentfulPostMetaDescriptionTextNodeSys
+}
+
+type contentfulPostMetaDescriptionTextNodeSys {
+  type: String
+}
+
+type contentfulPostBodyTextNode implements Node @derivedTypes @childOf(types: ["ContentfulPost"]) @dontInfer {
+  body: String
+  sys: contentfulPostBodyTextNodeSys
+}
+
+type contentfulPostBodyTextNodeSys {
+  type: String
+}
+
+type ContentfulPost implements Node @derivedTypes @dontInfer {
+  title: String
+  slug: String
+  publishDate: Date @dateformat
+  pageCategory: [ContentfulPage] @link(by: "id", from: "pageCategory___NODE")
+  heroImage: ContentfulAsset @link(by: "id", from: "heroImage___NODE")
+  tags: [ContentfulTag] @link(by: "id", from: "tags___NODE")
+  body: contentfulPostBodyTextNode @link(by: "id", from: "body___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulPostSys
+  node_locale: String
+  metaDescription: contentfulPostMetaDescriptionTextNode @link(by: "id", from: "metaDescription___NODE")
+}
+
+type ContentfulPage implements Node @derivedTypes @dontInfer {
+  title: String
+  slug: String
+  post: [ContentfulPost] @link(by: "id", from: "post___NODE")
+  body: contentfulPageBodyTextNode @link(by: "id", from: "body___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulPageSys
+  node_locale: String
+  metaDescription: contentfulPageMetaDescriptionTextNode @link(by: "id", from: "metaDescription___NODE")
+}
+
+type contentfulPageBodyTextNode implements Node @derivedTypes @childOf(types: ["ContentfulPage"]) @dontInfer {
+  body: String
+  sys: contentfulPageBodyTextNodeSys
+}
+
+type contentfulPageBodyTextNodeSys {
+  type: String
+}
+
+type ContentfulPageSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulPageSysContentType
+}
+
+type ContentfulPageSysContentType @derivedTypes {
+  sys: ContentfulPageSysContentTypeSys
+}
+
+type ContentfulPageSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type contentfulPageMetaDescriptionTextNode implements Node @derivedTypes @childOf(types: ["ContentfulPage"]) @dontInfer {
+  metaDescription: String
+  sys: contentfulPageMetaDescriptionTextNodeSys
+}
+
+type contentfulPageMetaDescriptionTextNodeSys {
+  type: String
+}
+
+type ContentfulTag implements Node @derivedTypes @dontInfer {
+  title: String
+  slug: String
+  post: [ContentfulPost] @link(by: "id", from: "post___NODE")
+  spaceId: String
+  contentful_id: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulTagSys
+  node_locale: String
+}
+
+type ContentfulTagSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulTagSysContentType
+}
+
+type ContentfulTagSysContentType @derivedTypes {
+  sys: ContentfulTagSysContentTypeSys
+}
+
+type ContentfulTagSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulPostSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulPostSysContentType
+}
+
+type ContentfulPostSysContentType @derivedTypes {
+  sys: ContentfulPostSysContentTypeSys
+}
+
+type ContentfulPostSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+  contentful_id: String
+}
+
+type ContentfulContentType implements Node @derivedTypes @dontInfer {
+  name: String
+  displayField: String
+  description: String
+  sys: ContentfulContentTypeSys
+}
+
+type ContentfulContentTypeSys {
+  type: String
+}

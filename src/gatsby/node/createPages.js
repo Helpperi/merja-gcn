@@ -68,12 +68,23 @@ module.exports = async ({ graphql, actions }) => {
   // Create a page for each "page"
   const pagesQuery = await graphql(query.data.pages)
   const pages = pagesQuery.data.allContentfulPage.edges
+  
   pages.forEach((page, i) => {
-    createPage({
-      path: `/${page.node.slug}/`,
+    const pagePagination =
+      basePath === '/'
+        ? `/${page.node.slug}`
+        : `/${basePath}/${page.node.slug}`
+
+    paginate({
+      createPage,
       component: path.resolve(`./src/templates/page.js`),
+      items: page.node.post || [],
+      itemsPerPage: config.siteMetadata.postsPerPage || 6,
+      pathPrefix: pagePagination,
       context: {
         slug: page.node.slug,
+        basePath: basePath === '/' ? '' : basePath,
+        paginationPath: pagePagination,
       },
     })
   })

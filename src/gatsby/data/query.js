@@ -14,6 +14,9 @@ module.exports.data = {
       edges {
         node {
           slug
+          post {
+            id
+          }
         }
       }
     }

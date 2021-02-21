@@ -17,15 +17,19 @@ try {
 
 module.exports = {
   siteMetadata: {
-    title: 'GCN',
+    title: 'Merja Oksman',
     description:
-      'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
+      '',
     siteUrl: 'https://gcn.netlify.com',
     image: '/images/share.jpg',
     menuLinks: [
       {
         name: 'Home',
         slug: '/',
+      },
+      {
+        name: 'Vaalit 2021',
+        slug: '/vaalit-2021/',
       },
       {
         name: 'About',
@@ -92,13 +96,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    {
-      resolve: `gatsby-plugin-schema-snapshot`,
-      options: {
-        path: `./src/gatsby/schema/schema.gql`,
-        update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
-      },
-    },
     'gatsby-plugin-netlify',
   ],
 }
