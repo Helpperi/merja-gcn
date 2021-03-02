@@ -1,19 +1,6 @@
-let contentfulConfig
-try {
-  contentfulConfig = require('./.contentful')
-} catch (e) {
-  contentfulConfig = {
-    production: {
-      spaceId: process.env.SPACE_ID,
-      accessToken: process.env.ACCESS_TOKEN,
-    },
-  }
-} finally {
-  const { spaceId, accessToken } = contentfulConfig.production
-  if (!spaceId || !accessToken) {
-    throw new Error('Contentful space ID and access token need to be provided.')
-  }
-}
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   siteMetadata: {
@@ -28,8 +15,8 @@ module.exports = {
         slug: '/',
       },
       {
-        name: 'Mietteitä',
-        slug: '/mietteita/',
+        name: 'Vuosien varrella kirjoitettua ...',
+        slug: '/vuosien-varrella-kirjoitettua/',
       },
       {
         name: 'Tietoa minusta',
@@ -71,16 +58,19 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     {
       resolve: 'gatsby-source-contentful',
-      options:
-        process.env.NODE_ENV === 'development'
-          ? contentfulConfig.development
-          : contentfulConfig.production,
+      options: {
+        spaceId: process.env.SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        host: process.env.HOST
+      }
     },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS,
         head: true,
+        anonymize: true,
+        respectDNT: true,
       },
     },
     'gatsby-plugin-sitemap',

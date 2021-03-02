@@ -34,7 +34,7 @@ module.exports = async ({ graphql, actions }) => {
     items: posts,
     itemsPerFirstPage: config.siteMetadata.postsPerFirstPage || 7,
     itemsPerPage: config.siteMetadata.postsPerTagPage || 6,
-    pathPrefix: basePath + 'mietteita',
+    pathPrefix: basePath + 'vuosien-varrella-kirjoitettua',
     context: {
       basePath: basePath === '/' ? '' : basePath,
       paginationPath: basePath === '/' ? '' : `/${basePath}`,
