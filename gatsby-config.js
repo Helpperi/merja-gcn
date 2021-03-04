@@ -24,8 +24,8 @@ module.exports = {
         slug: '/vuosien-varrella-kirjoitettua/',
       },
       {
-        name: 'Tietoa minusta',
-        slug: '/about/',
+        name: 'Monessa mukana',
+        slug: '/monessa-mukana/',
       },
       {
         name: 'Ota yhteyttä',
