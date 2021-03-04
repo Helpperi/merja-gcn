@@ -8,10 +8,10 @@ const Body = styled.div`
   h1,
   h2,
   h3 {
+    font-family: ${props => props.theme.fonts.header};
     font-weight: 600;
     line-height: 1.25;
     margin: 0 0 1rem 0;
-    text-transform: capitalize;
   }
 
   h1 {
@@ -82,6 +82,7 @@ const Body = styled.div`
 
   blockquote {
     font-style: italic;
+    font-family: ${props => props.theme.fonts.blockquote};
     font-size: 150%;
     border-left: 4px solid ${props => props.theme.colors.blockquote};
     padding: 0 0 0 0.5em;

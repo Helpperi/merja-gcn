@@ -44,8 +44,8 @@ const StyledImg = styled(Img)`
 
 const Title = styled.h2`
   font-size: 1.5em;
+  font-family: ${props => props.theme.fonts.header};
   font-weight: 600;
-  text-transform: capitalize;
   margin: 1rem 1rem 0.5rem 1rem;
 `
 

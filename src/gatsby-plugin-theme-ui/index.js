@@ -10,7 +10,11 @@ export default {
   },
   fonts: {
     body:
-      '"Bree Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+      'Lato, Montserrat, sans-serif',
+    header:
+      '"Bree Serif", georgia, serif',
+    blockquote:
+      'Lobster, "Bree Serif", sans-serif',
   },
   sizes: {
     maxWidth: '1050px',
