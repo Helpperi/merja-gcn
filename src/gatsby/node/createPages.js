@@ -82,7 +82,7 @@ module.exports = async ({ graphql, actions }) => {
       createPage,
       component: path.resolve(`./src/templates/page.js`),
       items: page.node.post || [],
-      itemsPerPage: config.siteMetadata.postsPerPage || 3,
+      itemsPerPage: config.siteMetadata.postsPerPage || 6,
       pathPrefix: pagePagination,
       context: {
         slug: page.node.slug,
