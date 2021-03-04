@@ -37,7 +37,7 @@ module.exports = async ({ graphql, actions }) => {
     pathPrefix: basePath + 'vuosien-varrella-kirjoitettua',
     context: {
       basePath: basePath === '/' ? '' : basePath,
-      paginationPath: basePath === '/' ? '' : `/${basePath}`,
+      paginationPath: basePath + 'vuosien-varrella-kirjoitettua',
     },
   })
 
