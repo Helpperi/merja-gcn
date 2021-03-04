@@ -2,7 +2,12 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const facebookTransformer = require('./src/custom-embed-transformers/facebook-transformer');
+
 module.exports = {
+  flags: {
+    DEV_SSR:true
+  },
   siteMetadata: {
     title: 'Merja Oksman',
     description:
@@ -52,6 +57,18 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
+          {
+            resolve: `gatsby-remark-embedder`,
+            options: {
+              customTransformers: [
+                // Your custom transformers
+                facebookTransformer
+              ],
+              services: {
+                // The service-specific options by the name of the service
+              },
+            },
+          },
         ],
       },
     },
@@ -79,7 +96,7 @@ module.exports = {
       options: {
         name: 'Merja Oksman Kuntavaalit 2021',
         short_name: 'Merja Oksman',
-        start_url: '/vaalit-2021/',
+        start_url: '/',
         background_color: '#ffffff',
         theme_color: '#ffffff',
         display: 'minimal-ui',

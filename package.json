@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-gcn",
-  "description": "A starter template to build amazing static websites with Gatsby, Contentful and Netlify",
-  "version": "2.1.3",
-  "repository": "https://github.com/ryanwiemer/gatsby-starter-gcn",
-  "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
+  "name": "merjaoksman",
+  "description": "Merjan kotisivut",
+  "version": "1.0.0",
+  "repository": "https://github.com/Helpperi/merja-gcn",
+  "author": "Lasse Häll <lasse@helpperi.net>",
   "dependencies": {
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
@@ -22,8 +22,9 @@
     "gatsby-plugin-react-helmet": "^4.0.0",
     "gatsby-plugin-schema-snapshot": "^2.0.0",
     "gatsby-plugin-sitemap": "^3.0.0",
-    "gatsby-plugin-theme-ui": "^0.6.0",
+    "gatsby-plugin-theme-ui": "^0.6.0-alpha.7",
     "gatsby-remark-autolink-headers": "^3.0.0",
+    "gatsby-remark-embedder": "^4.1.0",
     "gatsby-remark-images-contentful": "^3.0.0",
     "gatsby-remark-prismjs": "^4.0.0",
     "gatsby-source-contentful": "^5.0.0",
@@ -36,7 +37,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "theme-ui": "^0.6.0"
+    "theme-ui": "^0.6.0-alpha.7"
   },
   "keywords": [
     "gatsby"
