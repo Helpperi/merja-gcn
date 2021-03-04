@@ -34,7 +34,7 @@ module.exports = {
     ],
     postsPerFirstPage: 7,
     postsPerTagPage: 6,
-    postsPerPage: 3,
+    postsPerPage: 6,
     basePath: '/',
   },
   plugins: [
@@ -102,6 +102,19 @@ module.exports = {
         display: 'minimal-ui',
         icon: './static/images/favicon.png',
       },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Bree Serif`,
+          `Montserrat`,
+          `Alegreya`,
+          `Slabo 27px`,
+          `Lobster`,
+        ],
+        display: 'swap'
+      }
     },
     'gatsby-plugin-offline',
     'gatsby-plugin-netlify',
