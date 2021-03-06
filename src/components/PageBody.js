@@ -81,12 +81,9 @@ const Body = styled.div`
   }
 
   blockquote {
-    color: ${props => props.theme.colors.primary2};
     font-style: italic;
     font-family: ${props => props.theme.fonts.blockquote};
-    font-size: 1.75em;
-    font-weight: bold;
-    margin-left: 25px;
+    margin-left: 50px;
     border-left: 4px solid ${props => props.theme.colors.blockquote};
     padding: 0 0 0 0.5em;
   }
