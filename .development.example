@@ -1,0 +1,5 @@
+// file name .env.development
+HOST=
+SPACE_ID=
+CONTENTFUL_ACCESS_TOKEN=
+GOOGLE_ANALYTICS=

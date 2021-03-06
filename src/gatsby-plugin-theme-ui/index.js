@@ -3,6 +3,7 @@ export default {
     background: '#ffffff',
     text: '#121212',
     primary: '#075bd6',
+    primary2: '#0f56ff',
     secondary: '#e9e9e9',
     tertiary: '#f3f3f3',
     blockquote: '#FF861C',
@@ -14,7 +15,7 @@ export default {
     header:
       '"Bree Serif", georgia, serif',
     blockquote:
-      'Lobster, "Bree Serif", sans-serif',
+      '"Bree Serif", sans-serif',
   },
   sizes: {
     maxWidth: '1050px',

@@ -81,9 +81,12 @@ const Body = styled.div`
   }
 
   blockquote {
+    color: ${props => props.theme.colors.primary2};
     font-style: italic;
     font-family: ${props => props.theme.fonts.blockquote};
-    font-size: 150%;
+    font-size: 1.75em;
+    font-weight: bold;
+    margin-left: 25px;
     border-left: 4px solid ${props => props.theme.colors.blockquote};
     padding: 0 0 0 0.5em;
   }
@@ -101,7 +104,9 @@ const Body = styled.div`
 const PageBody = props => {
   return (
     <Body
-      dangerouslySetInnerHTML={{ __html: props.body.childMarkdownRemark.html }}
+      dangerouslySetInnerHTML={
+        { __html: props.body?.childMarkdownRemark?.html }
+      }
     />
   )
 }

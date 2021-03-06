@@ -109,9 +109,6 @@ module.exports = {
         fonts: [
           `Bree Serif`,
           `Montserrat`,
-          `Alegreya`,
-          `Slabo 27px`,
-          `Lobster`,
         ],
         display: 'swap'
       }

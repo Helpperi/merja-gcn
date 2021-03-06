@@ -38,8 +38,8 @@ const PageTemplate = ({ data, pageContext }) => {
         title={title}
         description={
           metaDescription
-            ? metaDescription.internal.content
-            : body.childMarkdownRemark.excerpt
+            ? metaDescription?.internal?.content
+            : body?.childMarkdownRemark?.excerpt
         }
       />
       <Container>
