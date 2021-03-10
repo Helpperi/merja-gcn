@@ -20,8 +20,8 @@ module.exports = {
         slug: '/',
       },
       {
-        name: 'Vuosien varrella kirjoitettua ...',
-        slug: '/vuosien-varrella-kirjoitettua/',
+        name: 'Julkaistuja kolumneja ja mielipiteitä',
+        slug: '/julkaistuja-kolumneja-ja-mielipiteitae/',
       },
       {
         name: 'Monessa mukana',
