@@ -28,6 +28,10 @@ module.exports = {
         slug: '/monessa-mukana/',
       },
       {
+        name: 'Voimaannuttavaa',
+        slug: 'voimaannuttavaa',
+      },
+      {
         name: 'Ota yhteyttä',
         slug: '/contact/',
       },
