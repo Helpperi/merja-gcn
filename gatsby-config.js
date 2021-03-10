@@ -29,7 +29,7 @@ module.exports = {
       },
       {
         name: 'Voimaannuttavaa',
-        slug: 'voimaannuttavaa',
+        slug: '/voimaannuttavaa/',
       },
       {
         name: 'Ota yhteyttä',
