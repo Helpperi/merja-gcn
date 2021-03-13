@@ -208,7 +208,7 @@ class ContactForm extends React.Component {
         <Name
           name="name"
           type="text"
-          placeholder="Nimesi"
+          placeholder="Nimi"
           value={this.state.name}
           onChange={this.handleInputChange}
           required
