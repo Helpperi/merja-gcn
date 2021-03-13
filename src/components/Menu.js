@@ -14,21 +14,21 @@ const Header = styled.header`
   right: 0;
   bottom: 0;
   left: 0;
-  max-height: ${props => (props.open ? '100%' : '60px')};
+  max-height: ${props => (props.open ? '100%' : '90px')};
   width: 100%;
   z-index: 99;
   display: flex;
   border-bottom: 1px solid ${props => props.theme.colors.border};
   border-width: ${props => (props.open ? '0' : '1px')};
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    max-height: 60px;
+    max-height: 90px;
     border-width: 1px;
+    padding-bottom: 3em;
   }
 `
 
 const Nav = styled.nav`
   width: 100%;
-  max-width: ${props => props.theme.sizes.maxWidth};
   margin: 0 auto;
   padding: 0 1.5em;
 `
@@ -40,7 +40,6 @@ const List = styled.ul`
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     pointer-events: auto;
     display: flex;
-    flex-wrap: wrap;
     justify-content: flex-end;
     padding: 0;
   }
@@ -48,19 +47,19 @@ const List = styled.ul`
 
 const Item = styled(motion.li)`
   display: block;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    padding: 0;
-    line-height: 60px;
+    padding: 1em 0 1em 0;
+    line-height: 30px;
     display: inline-block;
     margin: 0 0 0 1.5rem;
     opacity: 1 !important;
     visibility: visible !important;
   }
   &:first-of-type {
-    padding: 0;
+    padding: 1em 0 2em 0;
     pointer-events: auto;
-    line-height: 60px;
+    line-height: 30px;
     opacity: 1 !important;
     visibility: visible !important;
     font-weight: ${props => props.theme.fonts.boldWeight};
