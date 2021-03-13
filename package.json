@@ -10,6 +10,7 @@
     "babel-plugin-styled-components": "^1.10.7",
     "chalk": "^4.1.0",
     "contentful-import": "^7.6.2",
+    "framer-motion": "^3.10.3",
     "gatsby": "^3.0.0",
     "gatsby-awesome-pagination": "^0.3.5",
     "gatsby-image": "^3.0.0",

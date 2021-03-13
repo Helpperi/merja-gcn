@@ -1,6 +1,7 @@
 export default {
   colors: {
     background: '#ffffff',
+    border: '#DCD8D3',
     text: '#121212',
     primary: '#075bd6',
     primary2: '#0f56ff',
@@ -16,6 +17,8 @@ export default {
       '"Bree Serif", georgia, serif',
     blockquote:
       '"Bree Serif", sans-serif',
+    normalWeight: '400',
+    boldWeight: '600',
   },
   sizes: {
     maxWidth: '1050px',

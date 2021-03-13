@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 
 const Title = styled.h1`
-  font-size: ${props => (props.small ? '1em' : '2em')};
+  font-size: ${props => (props.small ? '1.5em' : '2.5em')};
   font-family: ${props => props.theme.fonts.header};
   font-weight: 600;
   text-align: center;
