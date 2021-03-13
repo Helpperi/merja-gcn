@@ -8,7 +8,7 @@ import SEO from '../components/SEO'
 const Contact = ({ data }) => {
   return (
     <Layout>
-      <SEO title="Contact" description="Contact description goes here" />
+      <SEO title="Ota yhteyttä" description="Ota yhteyttä kuntapäättäjään Merja Oksman!" />
       <Container>
         <PageTitle>OTA YHTEYTTÄ</PageTitle>
         <ContactForm />
