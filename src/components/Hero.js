@@ -30,8 +30,10 @@ const BgImg = styled(Img)`
 
 const Title = styled.h1`
   z-index: 2;
-  font-size: 3em;
-  font-weight: 600;
+  font-size: 4em;
+  text-shadow: 2px 2px ${props => props.theme.colors.text};
+  font-family: ${props => props.theme.fonts.header};
+  font-weight: 400;
   position: absolute;
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
@@ -40,7 +42,7 @@ const Title = styled.h1`
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
+  color: ${props => props.theme.colors.secondary};
 `
 
 const Hero = props => (

@@ -9,6 +9,7 @@ export default {
     tertiary: '#f3f3f3',
     blockquote: '#FF861C',
     highlight: '#0f56ff',
+    header: '#0525e2',
   },
   fonts: {
     body:

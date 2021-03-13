@@ -79,7 +79,7 @@ const Message = styled.textarea`
 `
 
 const Submit = styled.input`
-  background: ${props => props.theme.colors.text} !important;
+  background: ${props => props.theme.colors.primary} !important;
   color: white !important;
   cursor: pointer;
   transition: 0.2s;
