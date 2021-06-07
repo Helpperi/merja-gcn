@@ -3,6 +3,7 @@ require("dotenv").config({
 })
 
 const facebookTransformer = require('./src/custom-embed-transformers/facebook-transformer');
+const contentfulTransformer = require('./src/custom-embed-transformers/contentful-transformer');
 
 module.exports = {
   flags: {
@@ -66,7 +67,8 @@ module.exports = {
             options: {
               customTransformers: [
                 // Your custom transformers
-                facebookTransformer
+                facebookTransformer,
+                contentfulTransformer
               ],
               services: {
                 // The service-specific options by the name of the service
