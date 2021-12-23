@@ -17,7 +17,7 @@ module.exports = {
     image: '/images/share.jpg',
     menuLinks: [
       {
-        name: 'Kuntavaalit 2021',
+        name: 'Aluevaalit 2022',
         slug: '/',
       },
       {
@@ -100,7 +100,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Merja Oksman Kuntavaalit 2021',
+        name: 'Merja Oksman Aluevaalit 2022',
         short_name: 'Merja Oksman',
         start_url: '/',
         background_color: '#ffffff',
