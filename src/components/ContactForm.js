@@ -233,8 +233,7 @@ class ContactForm extends React.Component {
 
         <Modal visible={this.state.showModal}>
           <p>
-            Thank you for reaching out. I will get back to you as soon as
-            possible.
+            Kiitos yhteydenotosta, vastaan viestiisi mahdollisimman pian.
           </p>
           <Button onClick={this.closeModal}>Okay</Button>
         </Modal>
