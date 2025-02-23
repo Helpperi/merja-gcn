@@ -21,7 +21,7 @@ const Posts = ({ data, pageContext }) => {
     featuredPost = null
   }
   try {
-    ogImage = posts[0].node.heroImage.ogimg.src
+    ogImage = posts[0].node.heroImage.gatsbyImageData.images.fallback.src
   } catch (error) {
     ogImage = null
   }
@@ -65,12 +65,7 @@ export const query = graphql`
           publishDate(formatString: "MMMM DD, YYYY")
           heroImage {
             title
-            fluid(maxWidth: 1800) {
-              ...GatsbyContentfulFluid_withWebp_noBase64
-            }
-            ogimg: resize(width: 1800) {
-              src
-            }
+            gatsbyImageData(width: 1800, placeholder: BLURRED)
           }
           body {
             childMarkdownRemark {

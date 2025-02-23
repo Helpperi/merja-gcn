@@ -25,7 +25,7 @@ const PostTemplate = ({ data, pageContext }) => {
 
   let ogImage
   try {
-    ogImage = heroImage.ogimg.src
+    ogImage = heroImage.gatsbyImageData.images.fallback.src
   } catch (error) {
     ogImage = null
   }
@@ -74,12 +74,7 @@ export const query = graphql`
       }
       heroImage {
         title
-        fluid(maxWidth: 1800) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-        ogimg: resize(width: 1800) {
-          src
-        }
+        gatsbyImageData(width: 1800, placeholder: BLURRED)
       }
       body {
         childMarkdownRemark {

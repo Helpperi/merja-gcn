@@ -17,8 +17,12 @@ module.exports = {
     image: '/images/share.jpg',
     menuLinks: [
       {
-        name: 'Aluevaalit 2022',
+        name: 'Merja Oksman',
         slug: '/',
+      },
+      {
+        name: 'Kunta- ja aluevaalit 2025',
+        slug: '/kunta-ja-aluevaalit-2025/'
       },
       {
         name: 'Julkaistuja kolumneja ja mielipiteitä',
@@ -45,7 +49,9 @@ module.exports = {
   plugins: [
     `gatsby-plugin-emotion`,
     'gatsby-plugin-theme-ui',
+    'gatsby-plugin-lodash',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-image',
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -100,7 +106,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Merja Oksman Aluevaalit 2022',
+        name: 'Merja Oksman Kunta- ja aluevaalit 2025',
         short_name: 'Merja Oksman',
         start_url: '/',
         background_color: '#ffffff',
@@ -120,6 +126,13 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-schema-snapshot`,
+      options: {
+        path: `./src/gatsby/schema/schema.gql`,
+        update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
+      },
+    },
     'gatsby-plugin-netlify',
   ],
 }

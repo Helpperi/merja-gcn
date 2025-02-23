@@ -18,7 +18,9 @@ module.exports = async ({ graphql, actions }) => {
     createPage({
       path: `${basePath === '/' ? '' : basePath}/${post.node.slug}/`,
       component: path.resolve(`./src/templates/post.js`),
+      ownerNodeId: post.node.id,
       context: {
+        id: post.node.id,
         slug: post.node.slug,
         basePath: basePath === '/' ? '' : basePath,
         prev,
@@ -33,11 +35,11 @@ module.exports = async ({ graphql, actions }) => {
     component: path.resolve(`./src/templates/posts.js`),
     items: posts,
     itemsPerFirstPage: config.siteMetadata.postsPerFirstPage || 7,
-    itemsPerPage: config.siteMetadata.postsPerTagPage || 6,
-    pathPrefix: basePath + 'vuosien-varrella-kirjoitettua',
+    itemsPerPage: config.siteMetadata.postsPerPage || 6,
+    pathPrefix: basePath,
     context: {
       basePath: basePath === '/' ? '' : basePath,
-      paginationPath: basePath + 'vuosien-varrella-kirjoitettua',
+      paginationPath: basePath === '/' ? '' : `/${basePath}`,
     },
   }) */
 
@@ -68,7 +70,7 @@ module.exports = async ({ graphql, actions }) => {
   // Create a page for each "page"
   const pagesQuery = await graphql(query.data.pages)
   const pages = pagesQuery.data.allContentfulPage.edges
-  
+
   pages.forEach((page, i) => {
     var pagePagination =
       basePath === '/'
