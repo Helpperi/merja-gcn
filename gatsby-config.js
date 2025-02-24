@@ -12,7 +12,7 @@ module.exports = {
   siteMetadata: {
     title: 'Merja Oksman',
     description:
-      'Merja Oksman, kaikessa mukana',
+      'Merja Oksman, monessa mukana',
     siteUrl: 'https://merjaoksman.fi',
     image: '/images/share.jpg',
     menuLinks: [
@@ -25,20 +25,16 @@ module.exports = {
         slug: '/kunta-ja-aluevaalit-2025/'
       },
       {
-        name: 'Julkaistuja kolumneja ja mielipiteitä',
-        slug: '/julkaistuja-kolumneja-ja-mielipiteitae/',
-      },
-      {
         name: 'Monessa mukana',
         slug: '/monessa-mukana/',
       },
       {
-        name: 'Voimaannuttavaa',
-        slug: '/voimaannuttavaa/',
+        name: 'Julkaistuja kolumneja ja mielipiteitä',
+        slug: '/julkaistuja-kolumneja-ja-mielipiteitae/',
       },
       {
-        name: 'Ota yhteyttä',
-        slug: '/contact/',
+        name: 'Voimaannuttavaa',
+        slug: '/voimaannuttavaa/',
       },
     ],
     postsPerFirstPage: 7,
