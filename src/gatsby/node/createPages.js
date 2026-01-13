@@ -30,7 +30,7 @@ module.exports = async ({ graphql, actions }) => {
   })
 
   // Create a page containing all "posts" and paginate.
-/*   paginate({
+  paginate({
     createPage,
     component: path.resolve(`./src/templates/posts.js`),
     items: posts,
@@ -41,7 +41,7 @@ module.exports = async ({ graphql, actions }) => {
       basePath: basePath === '/' ? '' : basePath,
       paginationPath: basePath === '/' ? '' : `/${basePath}`,
     },
-  }) */
+  })
 
   // Create "tag" page and paginate
   const tagsQuery = await graphql(query.data.tags)

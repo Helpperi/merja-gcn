@@ -53,7 +53,7 @@ const Posts = ({ data, pageContext }) => {
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
     allContentfulPost(
-      sort: { fields: [publishDate], order: DESC }
+      sort: { publishDate: DESC }
       limit: $limit
       skip: $skip
     ) {
