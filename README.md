@@ -12,7 +12,6 @@ A starter template to build amazing static websites with Gatsby, Contentful and 
 - SEO Friendly Component
   - OpenGraph sharing support
   - Sitemap Generation
-- Google Analytics
 - Progressive Web app
 - Offline Support
 - [Gatsby Standard module](https://www.npmjs.com/package/eslint-config-gatsby-standard) for linting Javascript with StandardJS
@@ -104,8 +103,7 @@ export default {
     highlight: '#5b8bf7',
   },
   fonts: {
-    body:
-      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
+    body: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
   },
   sizes: {
     maxWidth: '1050px',
@@ -143,12 +141,11 @@ export default {
 
 2.  Connect with GitHub and select your repo
 
-3.  Navigate to Netlify: **Settings** → **Build & Deploy** → **Build Environment Variables**. Add the following environment variables using the Space ID and Content Delivery API - access token from Contentful. Additionally if desired you can enter a Google Analytics ID. The variables must be named exactly like this in order to work properly.
+3.  Navigate to Netlify: **Settings** → **Build & Deploy** → **Build Environment Variables**. Add the following environment variables using the Space ID and Content Delivery API - access token from Contentful. The variables must be named exactly like this in order to work properly.
 
 ```
 ACCESS_TOKEN
 SPACE_ID
-GOOGLE_ANALYTICS
 ```
 
 ![](screenshots/netlify-build-environment-variables.jpg)

@@ -1,18 +1,17 @@
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-const facebookTransformer = require('./src/custom-embed-transformers/facebook-transformer');
-const contentfulTransformer = require('./src/custom-embed-transformers/contentful-transformer');
+const facebookTransformer = require('./src/custom-embed-transformers/facebook-transformer')
+const contentfulTransformer = require('./src/custom-embed-transformers/contentful-transformer')
 
 module.exports = {
   flags: {
-    DEV_SSR:true
+    DEV_SSR: true,
   },
   siteMetadata: {
     title: 'Merja Oksman',
-    description:
-      'Merja Oksman, monessa mukana',
+    description: 'Merja Oksman, monessa mukana',
     siteUrl: 'https://merjaoksman.fi',
     image: '/images/share.jpg',
     menuLinks: [
@@ -22,7 +21,7 @@ module.exports = {
       },
       {
         name: 'Kunta- ja aluevaalit 2025',
-        slug: '/kunta-ja-aluevaalit-2025/'
+        slug: '/kunta-ja-aluevaalit-2025/',
       },
       {
         name: 'Monessa mukana',
@@ -70,7 +69,7 @@ module.exports = {
               customTransformers: [
                 // Your custom transformers
                 facebookTransformer,
-                contentfulTransformer
+                contentfulTransformer,
               ],
               services: {
                 // The service-specific options by the name of the service
@@ -86,16 +85,7 @@ module.exports = {
       options: {
         spaceId: process.env.SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: process.env.HOST
-      }
-    },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS,
-        head: true,
-        anonymize: true,
-        respectDNT: true,
+        host: process.env.HOST,
       },
     },
     'gatsby-plugin-sitemap',
@@ -114,12 +104,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          `Bree Serif`,
-          `Montserrat`,
-        ],
-        display: 'swap'
-      }
+        fonts: [`Bree Serif`, `Montserrat`],
+        display: 'swap',
+      },
     },
     'gatsby-plugin-offline',
     {
