@@ -95,6 +95,18 @@ module.exports = async ({ graphql, actions }) => {
       
       const postIds = posts.slice(skip, skip + limit).map(p => p.id)
 
+      const previousPagePath =
+        i === 0
+          ? null
+          : i === 1
+          ? pagePath
+          : `${pagePath}/${i}`
+
+      const nextPagePath =
+        i === numberOfPages - 1
+          ? null
+          : `${pagePath}/${i + 2}`
+
       createPage({
         path: pathStr,
         component: path.resolve(`./src/templates/page.js`),
@@ -105,6 +117,9 @@ module.exports = async ({ graphql, actions }) => {
           numberOfPages,
           humanPageNumber: currentPage,
           basePath: basePath === '/' ? '' : basePath,
+          paginationPath: pagePath,
+          previousPagePath,
+          nextPagePath,
           postIds: postIds
         },
       })
