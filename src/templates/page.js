@@ -13,15 +13,12 @@ import Pagination from '../components/Pagination'
 
 const PageTemplate = ({ data, pageContext }) => {
   const posts = orderBy(
-    data.contentfulPage.post,
+    data.allContentfulPost.nodes,
     // eslint-disable-next-line
     [object => new moment(object.publishDateISO)],
     ['desc']
   )
 
-  const numberOfPosts = posts.length
-  const skip = pageContext.skip
-  const limit = pageContext.limit
   const { humanPageNumber, basePath } = pageContext
 
   let ogImage
@@ -46,7 +43,7 @@ const PageTemplate = ({ data, pageContext }) => {
         <PageTitle>{title}</PageTitle>
         <PageBody body={body} />
         <CardList>
-            {posts.slice(skip, limit * humanPageNumber).map(post => (
+            {posts.map(post => (
               <Card {...post} key={post.id} basePath={basePath} />
             ))}
         </CardList>
@@ -57,11 +54,9 @@ const PageTemplate = ({ data, pageContext }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
-    contentfulPage(slug: { eq: $slug }) {
-      title
-      slug
-      post {
+  query($slug: String!, $postIds: [String!]) {
+    allContentfulPost(filter: { id: { in: $postIds } }) {
+      nodes {
         id
         title
         slug
@@ -70,7 +65,7 @@ export const query = graphql`
         heroImage {
           title
           gatsbyImageData(width: 1800, placeholder: BLURRED)
-         }
+        }
         body {
           childMarkdownRemark {
             timeToRead
@@ -79,6 +74,10 @@ export const query = graphql`
           }
         }
       }
+    }
+    contentfulPage(slug: { eq: $slug }) {
+      title
+      slug
       metaDescription {
         internal {
           content

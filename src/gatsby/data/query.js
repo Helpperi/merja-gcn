@@ -16,6 +16,7 @@ module.exports.data = {
           slug
           post {
             id
+            publishDate
           }
         }
       }

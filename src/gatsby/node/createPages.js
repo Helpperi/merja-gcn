@@ -72,25 +72,42 @@ module.exports = async ({ graphql, actions }) => {
   const pages = pagesQuery.data.allContentfulPage.edges
 
   pages.forEach((page, i) => {
-    var pagePagination =
-      basePath === '/'
-        ? `/${page.node.slug}`
-        : `/${basePath}/${page.node.slug}`
-        
-    // Workaround to allow one page to have slug value '/'
-    pagePagination = pagePagination.replace('//','/')
+    const slug = page.node.slug
+    const posts = page.node.post || []
+    
+    // Sort posts by publishDate DESC
+    posts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate))
 
-    paginate({
-      createPage,
-      component: path.resolve(`./src/templates/page.js`),
-      items: page.node.post || [],
-      itemsPerPage: config.siteMetadata.postsPerPage || 6,
-      pathPrefix: pagePagination,
-      context: {
-        slug: page.node.slug,
-        basePath: basePath === '/' ? '' : basePath,
-        paginationPath: pagePagination,
-      },
+    const itemsPerPage = config.siteMetadata.postsPerPage || 6
+    const numberOfPages = Math.ceil(posts.length / itemsPerPage)
+    
+    // Base path logic
+    let pagePath = basePath === '/' ? `/${slug}` : `/${basePath}/${slug}`
+    // Workaround to allow one page to have slug value '/'
+    pagePath = pagePath.replace('//', '/')
+
+    Array.from({ length: numberOfPages || 1 }).forEach((_, i) => {
+      const currentPage = i + 1
+      const skip = i * itemsPerPage
+      const limit = itemsPerPage
+      
+      const pathStr = i === 0 ? pagePath : `${pagePath}/${currentPage}`
+      
+      const postIds = posts.slice(skip, skip + limit).map(p => p.id)
+
+      createPage({
+        path: pathStr,
+        component: path.resolve(`./src/templates/page.js`),
+        context: {
+          slug: slug,
+          limit,
+          skip,
+          numberOfPages,
+          humanPageNumber: currentPage,
+          basePath: basePath === '/' ? '' : basePath,
+          postIds: postIds
+        },
+      })
     })
   })
 }

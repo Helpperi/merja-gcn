@@ -56,27 +56,23 @@ const questions = [
 inquirer
   .prompt(questions)
   .then(({ spaceId, accessToken, previewToken, managementToken }) => {
-    console.log('Writing config file...')
-    const configFilePath = path.resolve(__dirname, '..', '.contentful.json')
-    writeFileSync(
-      configFilePath,
-      JSON.stringify(
-        {
-          development: {
-            host: 'preview.contentful.com',
-            spaceId,
-            accessToken: previewToken,
-          },
-          production: {
-            spaceId,
-            accessToken,
-          },
-        },
-        null,
-        2
-      )
-    )
-    console.log(`Config file ${chalk.yellow(configFilePath)} written`)
+    console.log('Writing config files...')
+    const envDevPath = path.resolve(__dirname, '..', '.env.development')
+    const envProdPath = path.resolve(__dirname, '..', '.env.production')
+
+    const envDevContent = `HOST=preview.contentful.com
+SPACE_ID=${spaceId}
+CONTENTFUL_ACCESS_TOKEN=${previewToken}
+`
+    const envProdContent = `HOST=cdn.contentful.com
+SPACE_ID=${spaceId}
+CONTENTFUL_ACCESS_TOKEN=${accessToken}
+`
+
+    writeFileSync(envDevPath, envDevContent)
+    writeFileSync(envProdPath, envProdContent)
+
+    console.log(`Config files ${chalk.yellow('.env.development')} and ${chalk.yellow('.env.production')} written`)
 
     return { spaceId, managementToken }
   })
